@@ -5,6 +5,7 @@ A simple browser calculator using HTML, CSS and JS.
 
 *High Priority*
 - implement rule for operators where the expression will evaluate if an operator button is pressed while an operator already exists in the expression
+- round long numbers
 
 *Medium Priority*
 - add exception handling for division by zero
@@ -13,3 +14,4 @@ A simple browser calculator using HTML, CSS and JS.
 *Low Priority*
 - implement color and display buttons
 - implement decimal button
+- add keyboard support

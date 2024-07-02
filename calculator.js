@@ -1,4 +1,7 @@
-let num1, num2, operator;
+let additionSymbol = document.querySelector("#addition").innerHTML;
+let subtractionSymbol = document.querySelector("#subtraction").innerHTML;
+let multiplicationSymbol = document.querySelector("#multiplication").innerHTML;
+let divisionSymbol = document.querySelector("#division").innerHTML;
 const displayValue = document.getElementById("display");
 
 const basicButtons = document.querySelectorAll(".number-button, .operator-button");
@@ -20,47 +23,29 @@ backspaceButton.addEventListener("click", () => {
 
 const equalsButton = document.querySelector("#equals-button");
 equalsButton.addEventListener("click", () => {
+    let acceptedChars = "1234567890."
     let expression = displayValue.innerHTML;
-    let additionSymbol = document.querySelector("#addition").innerHTML;
-    let subtractionSymbol = document.querySelector("#subtraction").innerHTML;
-    let multiplicationSymbol = document.querySelector("#multiplication").innerHTML;
-    let divisionSymbol = document.querySelector("#division").innerHTML;
-
-    // ASSUME THERE WILL ONLY BE ONE OPERATOR
-    if (expression.slice(-1) >= "0" && expression.slice(-1) <= "9"
-        && expression.slice(0, 1) >= "0" && expression.slice(0, 1) <= "9"
-    ){
-        if (expression.slice(0, -1).includes(additionSymbol)
-        ){
-            num1 = +expression.slice(0, expression.indexOf(additionSymbol));
-            num2 = +expression.slice(expression.indexOf(additionSymbol) + 1);
-            displayValue.innerHTML = add(num1, num2);
-        };    
-        if (expression.slice(0, -1).includes(subtractionSymbol)
-        ){
-            num1 = +expression.slice(0, expression.indexOf(subtractionSymbol));
-            num2 = +expression.slice(expression.indexOf(subtractionSymbol) + 1);
-            displayValue.innerHTML = subtract(num1, num2);
-        };    
-        if (expression.slice(0, -1).includes(multiplicationSymbol)
-        ){
-            num1 = +expression.slice(0, expression.indexOf(multiplicationSymbol));
-            num2 = +expression.slice(expression.indexOf(multiplicationSymbol) + 1);
-            displayValue.innerHTML = multiply(num1, num2);
-        };    
-        if (expression.slice(0, -1).includes(divisionSymbol)
-        ){
-            num1 = +expression.slice(0, expression.indexOf(divisionSymbol));
-            num2 = +expression.slice(expression.indexOf(divisionSymbol) + 1);
-            console.log(num1, num2);
-            displayValue.innerHTML = divide(num1, num2);
-        };
+    let firstChar = expression.slice(0, 1);
+    let lastChar = expression.slice(-1);
+    if (acceptedChars.includes(firstChar) && acceptedChars.includes(lastChar)) {
+        let operator = Array.from(expression).filter(char => !acceptedChars.includes(char)).join("");
+        console.log(operator);
+        let num1 = +expression.slice(0, expression.indexOf(operator));
+        let num2 = +expression.slice(expression.indexOf(operator) + 1);
+        displayValue.innerHTML = calculate(num1, num2, operator);
     }
 });
 
 // FUNCTIONS
 function clickNumberButton(number) {
     displayValue.innerHTML += number;
+}
+
+function calculate(num1, num2, operator) {
+    if (operator === additionSymbol) return add(num1, num2);
+    if (operator === subtractionSymbol) return subtract(num1, num2);
+    if (operator === multiplicationSymbol) return multiply(num1, num2);
+    if (operator === divisionSymbol) return divide(num1, num2);
 }
 
 function add(a, b) {
