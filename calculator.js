@@ -45,10 +45,9 @@ equalsButton.addEventListener("click", () => {
 function enterExpression(char) {
     for (operator of operators) {
         if (operators.includes(char) && displayValue.innerHTML.includes(operator)) {
-            return;
+            displayValue.innerHTML = calculate(displayValue.innerHTML);
         }
     }
-
     displayValue.innerHTML += char;
 }
 
