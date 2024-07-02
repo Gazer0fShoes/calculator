@@ -1,0 +1,8 @@
+.button-container {
+    display: flex;
+}
+
+.main-buttons {
+    display: flex;
+    flex-direction: column;
+}
