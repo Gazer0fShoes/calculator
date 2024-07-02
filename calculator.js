@@ -21,13 +21,27 @@ backspaceButton.addEventListener("click", () => {
 const equalsButton = document.querySelector("#equals-button");
 equalsButton.addEventListener("click", () => {
     let expression = displayValue.innerHTML;
-    if (!(expression.slice(0, -1).includes(document.querySelector("#addition").textContent)
-        || expression.slice(0, -1).includes(document.querySelector("#subtraction").textContent)
-        || expression.slice(0, -1).includes(document.querySelector("#multiplication").textContent)
-        || expression.slice(0, -1).includes(document.querySelector("#division").textContent)
-    )) return;
-    console.log("operator found");
     // ASSUME THERE WILL ONLY BE ONE OPERATOR
+    if (expression.slice(0, -1).includes(document.querySelector("#addition").innerHTML) 
+        && expression.slice(-1) >= "0" && expression.slice(-1) <= "9"
+        && expression.slice(0, 1) >= "0" && expression.slice(0, 1) <= "9") {
+        console.log("operator found. Function not yet implemented.");
+        };    
+    if (expression.slice(0, -1).includes(document.querySelector("#subtraction").innerHTML)
+        && expression.slice(-1) >= "0" && expression.slice(-1) <= "9"
+        && expression.slice(0, 1) >= "0" && expression.slice(0, 1) <= "9") {
+        console.log("operator found. Function not yet implemented.");
+        };    
+    if (expression.slice(0, -1).includes(document.querySelector("#multiplication").innerHTML)
+        && expression.slice(-1) >= "0" && expression.slice(-1) <= "9"
+        && expression.slice(0, 1) >= "0" && expression.slice(0, 1) <= "9") {
+        console.log("operator found. Function not yet implemented.");
+        };    
+    if (expression.slice(0, -1).includes(document.querySelector("#division").innerHTML)
+        && expression.slice(-1) >= "0" && expression.slice(-1) <= "9"
+        && expression.slice(0, 1) >= "0" && expression.slice(0, 1) <= "9") {
+        console.log("operator found. Function not yet implemented.")
+        };
 });
 
 // FUNCTIONS
