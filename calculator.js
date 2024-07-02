@@ -1,10 +1,11 @@
+const displayValue = document.getElementById("display");
+let num1, operator, num2;
 let additionSymbol = document.querySelector("#addition").innerHTML;
 let subtractionSymbol = document.querySelector("#subtraction").innerHTML;
 let multiplicationSymbol = document.querySelector("#multiplication").innerHTML;
 let divisionSymbol = document.querySelector("#division").innerHTML;
 let numbers = "1234567890.";
 let operators = [additionSymbol, subtractionSymbol, multiplicationSymbol, divisionSymbol];
-const displayValue = document.getElementById("display");
 
 const operatorButtons = document.querySelectorAll(".operator-button");
 operatorButtons.forEach(button => {
@@ -47,6 +48,9 @@ function enterExpression(char) {
         if (operators.includes(char) && displayValue.innerHTML.includes(operator)) {
             displayValue.innerHTML = calculate(displayValue.innerHTML);
         }
+    }
+    if (char === "." && displayValue.innerHTML.includes(".")) {
+        //TODO
     }
     displayValue.innerHTML += char;
 }
