@@ -1,26 +1,15 @@
 # calculator
 A simple browser calculator using HTML, CSS and JS. 
 
-<DONE>
-
-1. basic functions to 
-    add
-    subtract
-    multiply
-    divide
-
-2. variable for both numbers & the operator
-
-3. "operate" function to call the relevant basic function
-
-4. create HTML calculator with
-    buttons
-    operators
-    equals
-    clear
-    display
 <TODO>
 
-5. create function to populate display when buttons are pressed & store display value
+*High Priority*
+- implement rule for operators where the expression will evaluate if an operator button is pressed while an operator already exists in the expression
 
-6. make the thing work!
+*Medium Priority*
+- add exception handling for division by zero
+- add design
+
+*Low Priority*
+- implement color and display buttons
+- implement decimal button
