@@ -1,23 +1,33 @@
 let num1, num2, operator;
 const displayValue = document.getElementById("display");
-const numberButtons = document.querySelectorAll(".number-button");
-const operatorButtons = document.querySelectorAll(".operator-button");
-const basicButtons = document.querySelectorAll(".number-button, .operator-button");
-const clearButton = document.querySelector("#clear-button");
-const backspaceButton = document.querySelector("#backspace-button");
 
+const basicButtons = document.querySelectorAll(".number-button, .operator-button");
 basicButtons.forEach(button => {
     button.addEventListener("click", () => {
         clickNumberButton(button.innerHTML)
     })
 });
 
+const clearButton = document.querySelector("#clear-button");
 clearButton.addEventListener("click", () => {
     displayValue.innerHTML = "";
 });
 
+const backspaceButton = document.querySelector("#backspace-button");
 backspaceButton.addEventListener("click", () => {
     displayValue.innerHTML = displayValue.innerHTML.slice(0, -1);
+});
+
+const equalsButton = document.querySelector("#equals-button");
+equalsButton.addEventListener("click", () => {
+    let expression = displayValue.innerHTML;
+    if (!(expression.slice(0, -1).includes(document.querySelector("#addition").textContent)
+        || expression.slice(0, -1).includes(document.querySelector("#subtraction").textContent)
+        || expression.slice(0, -1).includes(document.querySelector("#multiplication").textContent)
+        || expression.slice(0, -1).includes(document.querySelector("#division").textContent)
+    )) return;
+    console.log("operator found");
+    // ASSUME THERE WILL ONLY BE ONE OPERATOR
 });
 
 // FUNCTIONS
