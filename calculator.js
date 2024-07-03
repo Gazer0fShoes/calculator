@@ -44,13 +44,29 @@ equalsButton.addEventListener("click", () => {
 
 // FUNCTIONS
 function enterExpression(char) {
+    let expression = displayValue.innerHTML;
     for (operator of operators) {
-        if (operators.includes(char) && displayValue.innerHTML.includes(operator)) {
-            displayValue.innerHTML = calculate(displayValue.innerHTML);
+        if (operators.includes(char) && expression.includes(operator)) {
+            displayValue.innerHTML = calculate(expression);
+            break;
         }
     }
-    if (char === "." && displayValue.innerHTML.includes(".")) {
-        //TODO
+    if (char === ".") {
+        let containsOperator = false;
+        for (operator of operators) {
+            if (expression.includes(operator)) {
+                containsOperator = true;
+                if (expression.slice(expression.indexOf(operator)).includes(".")) {
+                    return;
+                }
+            }
+        }
+        if (containsOperator === false && expression.includes(".")) {
+            return;
+        }
+        if (!expression || operators.includes(expression.slice(-1))) {
+            displayValue.innerHTML += "0";
+        }
     }
     displayValue.innerHTML += char;
 }
@@ -81,3 +97,14 @@ function multiply(a, b) {
 function divide(a, b) {
     return a / b;
 }
+
+/*
+when i press .
+    if there is an operator
+        && there is already a . after the operator
+            return
+    if there is no operator
+        && there is a .
+            return
+    update display
+*/
