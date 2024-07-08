@@ -14,10 +14,18 @@ body {
     background-color: black;
     margin: auto;
     padding: 10px;
+    border-radius: 15px;
 }
 
 #display {
     background-color: white;
+    min-height: 24px;
+}
+
+#format-buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
 }
 
 .button-container {
@@ -27,6 +35,10 @@ body {
 .main-buttons {
     display: flex;
     flex-direction: column;
+}
+
+.main-buttons * {
+    margin: 1px;
 }
 
 #addition {
