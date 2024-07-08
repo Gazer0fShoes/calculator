@@ -4,7 +4,6 @@ A simple browser calculator using HTML, CSS and JS.
 <TODO>
 
 *High Priority*
-- keep display box open
 - round long numbers
 
 *Medium Priority*
