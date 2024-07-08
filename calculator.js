@@ -18,7 +18,7 @@ operatorButtons.forEach(button => {
 const basicButtons = document.querySelectorAll(".number-button, .operator-button, #decimal-button");
 basicButtons.forEach(button => {
     button.addEventListener("click", () => {
-        enterExpression(button.innerHTML)
+        writeExpression(button.innerHTML)
     })
 });
 
@@ -37,13 +37,13 @@ equalsButton.addEventListener("click", () => {
     expression = displayValue.innerHTML;
     let firstChar = expression.slice(0, 1);
     let lastChar = expression.slice(-1);
-    if (numbers.includes(firstChar) && numbers.includes(lastChar)) {
+    if (displayValue.innerHTML && numbers.includes(firstChar) && numbers.includes(lastChar)) {
         displayValue.innerHTML = calculate(expression);
     }
 });
 
 // FUNCTIONS
-function enterExpression(char) {
+function writeExpression(char) {
     let expression = displayValue.innerHTML;
     for (operator of operators) {
         if (operators.includes(char) && expression.includes(operator)) {
@@ -68,11 +68,13 @@ function enterExpression(char) {
             displayValue.innerHTML += "0";
         }
     }
+    if (!expression && operators.includes(char)) displayValue.innerHTML += 0;
     displayValue.innerHTML += char;
 }
 
 function calculate(expression) {
     let operator = Array.from(expression).filter(char => !numbers.includes(char)).join("");
+    if (!operator) return +expression;
     let num1 = +expression.slice(0, expression.indexOf(operator));
     let num2 = +expression.slice(expression.indexOf(operator) + 1);
 
@@ -95,16 +97,9 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+    if (b === 0) {
+        alert("Whoa there cowboy, you can't divide by zero!");
+        return a;
+    }
     return a / b;
 }
-
-/*
-when i press .
-    if there is an operator
-        && there is already a . after the operator
-            return
-    if there is no operator
-        && there is a .
-            return
-    update display
-*/

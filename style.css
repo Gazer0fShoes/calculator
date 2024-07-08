@@ -1,3 +1,25 @@
+body {
+    background-color: rgb(74, 74, 74);
+}
+
+#calculator-container {
+    background-image: url("./images/background.jpg");
+    background-repeat: no-repeat;
+    height: 392px;
+    display: flex;
+
+}
+
+#calculator-body {
+    background-color: black;
+    margin: auto;
+    padding: 10px;
+}
+
+#display {
+    background-color: white;
+}
+
 .button-container {
     display: flex;
 }
@@ -5,4 +27,8 @@
 .main-buttons {
     display: flex;
     flex-direction: column;
-} 
+}
+
+#addition {
+    height: 200%;
+}
