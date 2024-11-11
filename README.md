@@ -1,5 +1,5 @@
 # calculator
-A simple browser calculator using HTML, CSS and JS. 
+A simple calculator that works in the browser, using HTML, CSS and JS. 
 
 <TODO>
 
